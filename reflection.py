@@ -22,7 +22,7 @@ def make_reflected(filename):
         for x in range(width):
             pixel = image.get_pixel(x, y)
             mirror.set_pixel(x, y, pixel)
-            mirror.set_pixel(x + 1, (height * 2), pixel)
+            mirror.set_pixel(x, (height * 2) - (y+1), pixel)
     return mirror
 
     # TODO: your code here.
