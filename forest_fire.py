@@ -34,7 +34,7 @@ def find_flames(filename):
             pixel.red = 255
             pixel.green = 0
             pixel.blue = 0
-        if pixel.green and pixel.blue and pixel.red >= average:
+        if pixel.green and pixel.blue >= average:
             #  grayscale a pixel
             pixel.green = average
             pixel.red = average

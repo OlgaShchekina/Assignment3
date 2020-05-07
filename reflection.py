@@ -16,6 +16,7 @@ def make_reflected(filename):
     width = image.width
     height = image.height
 
+    # Create new image to contain mirror reflection
     mirror = SimpleImage.blank(width, height * 2)
 
     for y in range(height):
@@ -25,8 +26,6 @@ def make_reflected(filename):
             mirror.set_pixel(x, (height * 2) - (y+1), pixel)
     return mirror
 
-    # TODO: your code here.
-    # return image
 
 
 def main():
