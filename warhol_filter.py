@@ -1,6 +1,7 @@
 """
 This program generates the Warhol effect based on the original image.
 """
+from random import uniform
 
 from simpleimage import SimpleImage
 
@@ -12,11 +13,26 @@ HEIGHT = N_ROWS * PATCH_SIZE
 PATCH_NAME = 'images/simba-sq.jpg'
 
 def main():
-    final_image = SimpleImage.blank(WIDTH, HEIGHT)
-    # TODO: your code here.
-    # This is an example which should generate a pinkish patch
-    patch = make_recolored_patch(1.5, 0, 1.5)
+    final_image = draw_patches()
     final_image.show()
+
+
+def draw_patches():
+    image = SimpleImage(PATCH_NAME)
+    width = image.width
+    height = image.height
+    final_image = SimpleImage.blank(WIDTH, HEIGHT)
+
+    for col in range(N_COLS):
+        for row in range (N_ROWS):
+            image = make_recolored_patch(uniform(0,1.5),uniform(0,1.5),uniform(1,1.5))
+            for y in range(height):
+                for x in range(width):
+                    pixel = image.get_pixel(x, y)
+                    final_image.set_pixel(x + width * col, y + height * row , pixel)
+    return final_image
+
+
 
 def make_recolored_patch(red_scale, green_scale, blue_scale):
     '''
@@ -28,8 +44,16 @@ def make_recolored_patch(red_scale, green_scale, blue_scale):
     :return: the newly generated patch
     '''
     patch = SimpleImage(PATCH_NAME)
-    # TODO: your code here.
+    for pixel in patch:
+        pixel.red *= red_scale
+        pixel.green *= green_scale
+        pixel.blue *= blue_scale
     return patch
+
+
+
+
+
 
 if __name__ == '__main__':
     main()

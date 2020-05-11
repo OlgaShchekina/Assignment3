@@ -35,7 +35,7 @@ The main() function below demonstrates the above functions as a test.
 import sys
 # If the following line fails, "Pillow" needs to be installed
 from PIL import Image
-from PIL.Image import core as _imaging
+
 
 def clamp(num):
     """
