@@ -25,7 +25,7 @@ def draw_patches():
 
     for col in range(N_COLS):
         for row in range (N_ROWS):
-            image = make_recolored_patch(uniform(0,1.5),uniform(0,1.4),uniform(1,1.5))
+            image = make_recolored_patch(uniform(0,1.4),uniform(0,1.4),uniform(1,1.4))
             for y in range(height):
                 for x in range(width):
                     pixel = image.get_pixel(x, y)
